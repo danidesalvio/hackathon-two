@@ -71,6 +71,25 @@
   background-position: center 20%;
 }
 
+.trip-page {
+  padding: 80px 0;
+  text-align: center;
+}
+.trip-page .trip-header {
+  font-size: 42px;
+  text-decoration: underline;
+}
+
+.new-trips {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.new-trips .trip-entry {
+  margin: 40px;
+  flex-basis: 20%;
+}
 .footer {
   padding: 80px 0;
   background-color: #444;
