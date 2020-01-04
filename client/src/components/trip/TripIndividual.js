@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TripForm from '../trip/TripForm'
+import moment from 'moment';
 
 class TripIndividual extends Component {
   state = { editing: false }
@@ -10,12 +11,15 @@ class TripIndividual extends Component {
   render() {
   const { id, name, start_date, end_time, deleteTrip }  = this.props
   const { editing } = this.state
+  var startDate = moment(start_date).format('MMM Do YY') 
+  var endDate = moment(end_time).format('MMM Do YY')
+
   return(
-  <div>
+  <div className='trip-entry'>
   {
     editing 
     ?
-    <TripForm {...this.props} toggleEdit={this.toggleEdit} /> 
+    <TripForm {...this.props} toggleEdit={this.toggleEdit} updateTrip={this.props.updateTrip}/> 
     :
     <>
   <h3>
@@ -27,9 +31,9 @@ class TripIndividual extends Component {
     {name}
     </Link>
     </h3>
-    <p>Start Date: {start_date} </p>
-    <p>End Date: {end_time} </p>
-    <button className='delete-trips' onClick={ () =>  this.toggleEdit() }>Edit</button>
+    <p>Start Date: {startDate} </p>
+    <p>End Date: {endDate} </p>
+    <button className='edit-trips' onClick={ () => this.toggleEdit() }>Edit</button>
     <button className='delete-trips' onClick={ () => deleteTrip(id) }>Delete</button>
     </>
   }
