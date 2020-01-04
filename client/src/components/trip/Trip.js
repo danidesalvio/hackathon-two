@@ -63,7 +63,8 @@ class TripIndex extends Component {
       return(
         <Container>
         <div className='trip-page'>
-            <h1 className='trip-header'>Trip</h1>
+            <h1 className='trip-header'>Need a Vacation?</h1>
+            <h4>Click the button below to start a new trip!</h4>
             <div className='add-trip'>
                 {
                 adding ?

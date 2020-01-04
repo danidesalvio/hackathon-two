@@ -77,7 +77,6 @@
 }
 .trip-page .trip-header {
   font-size: 42px;
-  text-decoration: underline;
 }
 
 .new-trips {
@@ -90,9 +89,10 @@
   margin: 40px;
   flex-basis: 20%;
 }
+
 .footer {
   padding: 80px 0;
-  background-color: #444;
+  background-color: #B2B2B2;
 }
 .footer .footer-wrapper {
   display: flex;
@@ -110,5 +110,9 @@
   }
   .footer .footer-wrapper .ftr-logo {
     margin: 30px 0;
+  }
+  .new-trips .trip-entry {
+    margin: 40px;
+    flex-basis: 90%;
   }
 }
