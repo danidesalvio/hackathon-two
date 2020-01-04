@@ -1,12 +1,18 @@
 import React, { Component} from 'react';
 import TripForm from './TripForm';
+import moment from 'moment';
 
 class TripShow extends Component {
   state = { editing: false }
+
   toggleEdit = () => this.setState({ editing: !this.state.editing })
+
   render() {
     const { name, start_date, end_time } = this.props.location.state
     const { editing } = this.state
+    var startDate = moment(start_date).format('MMM Do YY')
+    var endDate = moment(end_time).format('MMM Do YY')
+    
     return(
       <>
         {
@@ -16,8 +22,8 @@ class TripShow extends Component {
           :
           <>
             <h1>{name}</h1>
-            <p>Start Date:{start_date}</p>
-            <p>End Date: {end_time}</p>
+            <p>Start Date: {startDate} </p>
+            <p>End Date: {endDate} </p>
             <button onClick={ () => this.toggleEdit() }>
               Edit Dates
             </button>
