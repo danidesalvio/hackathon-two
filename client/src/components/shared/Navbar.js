@@ -9,10 +9,9 @@ const Navbar = () => (
       </div>
       <div class="nav-items">
           <a href='/'>Home</a>
+          <a href='/trip_types'>Trip Types</a>
       </div>
-      <div class="nav-items">
-        <a href='/trip_types'>Trip Types</a>
-      </div>
+      
   </div>
 )
 
