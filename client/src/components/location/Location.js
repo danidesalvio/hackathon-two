@@ -60,7 +60,7 @@ class Locations extends Component {
         const { adding } = this.state
         return(
          <div className='trip-page'>
-         <h1 className='trip-header'>Trip</h1>
+         <h1 className='trip-header'>Locations</h1>
           <div className='add-trip'>
          {
             adding ?
