@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Form } from 'semantic-ui-react';
 
 
 class TripForm extends Component {
   state = { 
     name: '', 
-    start_date: null,
-    end_time: null,
+    start_date: '',
+    end_time: '',
   }
 
   componentDidMount() {
@@ -30,28 +31,45 @@ class TripForm extends Component {
       this.props.addTrip(this.state)
       this.props.toggleAdd()
     }
-    this.setState({ name: '', start_date: null, end_time: null })
+    this.setState({ name: '', start_date: '', end_time: '' })
     }
 
   render() {
     const { name, start_date, end_time } = this.state
     return(
       <div className='trip-form'>
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
        <div className='name'>
-         <label for="name"> Name </label>
-          <input type="text" name={name} id="name"/>
+       <Form.Input
+          name='name'
+          value={name}
+          onChange={this.handleChange}
+          label='Name'
+          required
+        />
         </div>
         <div className='start-date'>
-          <label for="start_date"> Start Date </label>
-          <input type="date" name={start_date} id="start_date"/>
+        <Form.Input
+          type={<input type='date'/>}
+          name='start_date'
+          value={start_date}
+          onChange={this.handleChange}
+          label='Start Date'
+          required
+        />
         </div>
         <div className='end-time'>
-          <label for="end_time"> End Date </label>
-          <input type="date" name={end_time} id="end_time"/>
+        <Form.Input
+          type={<input type='date'/>}
+          name='end_time'
+          value={end_time}
+          onChange={this.handleChange}
+          label='End Date'
+          required
+        />
         </div>
         <button className='submit-button' type='submit'>Submit</button>
-      </form>
+      </Form>
       </div>
     )
   }
