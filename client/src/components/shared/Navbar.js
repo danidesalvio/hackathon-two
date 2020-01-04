@@ -10,6 +10,9 @@ const Navbar = () => (
       <div class="nav-items">
           <a href='/'>Home</a>
       </div>
+      <div class="nav-items">
+        <a href='/trip_types'>Trip Types</a>
+      </div>
   </div>
 )
 

@@ -64,3 +64,32 @@
   opacity: 0.9;
   background-position: center 20%;
 }
+
+.image-header.trip-types .img-overlay {
+  background-image: url('../images/savannah.jpg');
+  opacity: 0.7;
+  background-position: center 20%;
+}
+
+.footer {
+  padding: 80px 0;
+  background-color: #444;
+}
+.footer .footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 40px;
+}
+
+
+@media (max-width: 768px) {
+  .footer .footer-wrapper {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .footer .footer-wrapper .ftr-logo {
+    margin: 30px 0;
+  }
+}
