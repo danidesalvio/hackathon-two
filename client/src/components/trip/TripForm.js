@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class TripForm extends Component {
   state = { 
     name: '', 
-    start_date: 0,
-    end_time: 0,
+    start_date: null,
+    end_time: null,
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class TripForm extends Component {
       this.props.addTrip(this.state)
       this.props.toggleAdd()
     }
-    this.setState({ name: '', start_date: 0, end_time: 0 })
+    this.setState({ name: '', start_date: null, end_time: null })
     }
 
   render() {
@@ -40,15 +40,15 @@ class TripForm extends Component {
       <form onSubmit={this.handleSubmit}>
        <div className='name'>
          <label for="name"> Name </label>
-          <input type="text" name="name" id="name"/>
+          <input type="text" name={name} id="name"/>
         </div>
         <div className='start-date'>
           <label for="start_date"> Start Date </label>
-          <input type="date" name="start_date" id="start_date"/>
+          <input type="date" name={start_date} id="start_date"/>
         </div>
         <div className='end-time'>
           <label for="end_time"> End Date </label>
-          <input type="date" name="end_time" id="end_time"/>
+          <input type="date" name={end_time} id="end_time"/>
         </div>
         <button className='submit-button' type='submit'>Submit</button>
       </form>
