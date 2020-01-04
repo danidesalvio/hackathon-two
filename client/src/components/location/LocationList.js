@@ -2,8 +2,10 @@ import React, { Component} from 'react';
 import LocationIndividual from './LocationIndividual';
 
 class LocationList extends Component {
+
   render() {
-    const { locations, deleteLocation, updateLocation} = this.props
+    const { deleteLocation, updateLocation} = this.props
+    const {locations} = this.state
     
     return(
       locations.map( t => 
