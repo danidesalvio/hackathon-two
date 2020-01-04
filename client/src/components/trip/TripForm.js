@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react';
+import { Form, Container } from 'semantic-ui-react';
 
 
 class TripForm extends Component {
@@ -37,6 +37,7 @@ class TripForm extends Component {
   render() {
     const { name, start_date, end_time } = this.state
     return(
+      <Container>
       <div className='trip-form'>
       <Form onSubmit={this.handleSubmit}>
        <div className='name'>
@@ -46,7 +47,7 @@ class TripForm extends Component {
           onChange={this.handleChange}
           label='Name'
           required
-        />
+          />
         </div>
         <div className='start-date'>
         <Form.Input
@@ -56,7 +57,7 @@ class TripForm extends Component {
           onChange={this.handleChange}
           label='Start Date'
           required
-        />
+          />
         </div>
         <div className='end-time'>
         <Form.Input
@@ -66,11 +67,12 @@ class TripForm extends Component {
           onChange={this.handleChange}
           label='End Date'
           required
-        />
+          />
         </div>
         <button className='submit-button' type='submit'>Submit</button>
       </Form>
       </div>
+      </Container>
     )
   }
 }
