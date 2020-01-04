@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Card, Image } from 'semantic-ui-react';
-import bryce from '../images/bryce.jpg';
+import arches from '../images/arches.jpg';
 import aspen from '../images/aspen.jpg';
 
 const TripType = () => (
@@ -13,7 +13,7 @@ const TripType = () => (
     <div class="trip-section">
       <Card.Group itemsPerRow={2}>
         <Card>
-          <Image src={bryce} wrapped ui={false}/>
+          <Image src={arches} wrapped ui={false}/>
         </Card>
         <Card raised image={aspen}
         
