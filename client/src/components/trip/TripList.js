@@ -3,7 +3,7 @@ import TripIndividual from '../trip/TripIndividual';
 
 class TripList extends Component {
   render() {
-    const { trips, deleteTrip } = this.props
+    const { trips, deleteTrip, updateTrip} = this.props
     var trip_list = trips.sort((a, b) => a.created_at > b.created_at).reverse()
     
     return(
@@ -11,6 +11,7 @@ class TripList extends Component {
         <TripIndividual
         key={t.id}
         {...t}
+        updateTrip={updateTrip}
         deleteTrip={deleteTrip}/>
       )
     )

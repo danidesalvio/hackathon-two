@@ -3,11 +3,11 @@ import '../css/custom.css';
 import logo from '../images/airplane.svg';
 
 const Navbar = () => (
-  <div class="nav">
-      <div class="nav-logo">
+  <div className="nav">
+      <div className="nav-logo">
         <img src={logo}/>
       </div>
-      <div class="nav-items">
+      <div className="nav-items">
           <a href='/'>Home</a>
           <a href='/trip_types'>Trip Types</a>
       </div>
