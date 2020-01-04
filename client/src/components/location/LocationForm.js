@@ -30,7 +30,7 @@ class LocationForm extends Component {
       this.props.toggleAdd()
     }
     this.setState({ name: '', days: 0 })
-    }
+  }
 
   render() {
     const { name, days } = this.state
