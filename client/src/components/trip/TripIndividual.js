@@ -8,7 +8,7 @@ class TripIndividual extends Component {
   toggleEdit = () => this.setState({ editing: !this.state.editing })
 
   render() {
-  const { id, name, start_date, end_time, deleteTrip, updateTrip}  = this.props
+  const { id, name, start_date, end_time, deleteTrip }  = this.props
   const { editing } = this.state
   return(
   <div>
@@ -27,7 +27,6 @@ class TripIndividual extends Component {
     {name}
     </Link>
     </h3>
-   
     <p>Start Date: {start_date} </p>
     <p>End Date: {end_time} </p>
     <button className='delete-trips' onClick={ () =>  this.toggleEdit() }>Edit</button>
