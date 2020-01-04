@@ -7,6 +7,7 @@ import Trip from './components/trip/Trip';
 import TripShow from './components/trip/TripShow';
 import TripType from './components/pages/TripType';
 import Footer from './components/shared/Footer';
+import Location from './components/location/Location';
 
 
 
@@ -17,6 +18,7 @@ const App = () => (
       <Route exact path="/" component={Home}/>
       <Route exact path="/trip" component={Trip}/>
       <Route exact path="/trips/:id" component={TripShow} />
+      <Route exact path="/trips/:trip_id/locations" component={Location} />
       <Route exact path="/trip_types" component={TripType} />
     </Switch>
     
