@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Container, Button } from 'semantic-ui-react';
+
 import TripForm from '../trip/TripForm';
 import TripList from '../trip/TripList';
 
@@ -59,18 +61,24 @@ class TripIndex extends Component {
   render() {
       const { adding } = this.state
       return(
-       <div className='trip-page'>
-       <h1 className='trip-header'>Trip</h1>
-        <div className='add-trip'>
-       {
-          adding ?
-          <div className='adding-trip'><TripForm addTrip={this.addTrip} toggleAdd={this.toggleAdd} /></div>
-          :
-          <button className='add-trip-button' color='teal' onClick={this.toggleAdd}>New Trip</button>
-        }
-        </div>
-       <TripList trips={this.state.trips} updateTrip={this.updateTrip} deleteTrip={this.deleteTrip}/>
+        <Container>
+        <div className='trip-page'>
+            <h1 className='trip-header'>Need a Vacation?</h1>
+            <h4>Click the button below to start a new trip!</h4>
+            <div className='add-trip'>
+                {
+                adding ?
+                <div className='adding-trip'><TripForm addTrip={this.addTrip} toggleAdd={this.toggleAdd} /></div>
+                :
+                <Button className='add-trip-button' color='teal' onClick={this.toggleAdd}>New Trip</Button>
+                }
+            </div>
+            <div className='new-trips'>
+                <TripList trips={this.state.trips} updateTrip={this.updateTrip} deleteTrip={this.deleteTrip}/>
+            </div>
        </div>
+        </Container>
+       
   )}
 }
 
