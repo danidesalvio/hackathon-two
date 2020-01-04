@@ -1,22 +1,20 @@
 import React, { Component} from 'react';
+import LocationIndividual from './LocationIndividual';
 
 class LocationList extends Component {
   render() {
-    const { name, days} = this.props
-
-  return(
-    <>
-          {
-            locations.map ( location =>
-              <div>
-                  <h1>{name}</h1>
-                  <h2>{days}</h2>
-              </div>
-            )
-          }
-      </>
-  )
-  }
+    const { locations, deleteLocation, updateLocation} = this.props
+    
+    return(
+      locations.map( t => 
+        <LocationIndividual
+        key={t.id}
+        {...t}
+        updateLocation={updateLocation}
+        deleteLocation={deleteLocation}/>
+      )
+    )
+  } 
 }
 
 export default LocationList;
