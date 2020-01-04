@@ -1,19 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
+import '../css/custom.css';
+import moment from 'moment';
 
-const TripShow = ({ id, name, end_time, start_date}) => (
+class TripShow  extends Component {
+render() {
+const { id, name, end_time, start_date } = this.props.location.state
+var startDate = moment(start_date).format('MMM Do YY')
+  var endDate = moment(end_time).format('MMM Do YY')
+  
+return(
 <>
-<h2>{name}</h2>
-<p>Start Date: {start_date} </p>
-<p>End Date: {end_time} </p>
-
-<Link className='locations-link' to={{
-  pathname: `/trips/${id}/locations`,
-  state: { id }
-}}>
-  Locations
-</Link>
+    <div class="image-header home">
+        <h1>Your Trip</h1>
+        <div class="img-overlay"></div>
+    </div>
+  <Container>
+    <div class="your-trip">
+      <h2>{name}</h2>
+      <p>Start Date: {startDate} </p>
+      <p>End Date: {endDate} </p>
+      <Link className='locations-link' to={{
+        pathname: `/trips/${id}/locations`,
+        state: { id }
+      }}>
+        Locations
+      </Link>
+    </div>
+  </Container> 
 </>
-)
-
+  )
+}
+}
 export default TripShow;
