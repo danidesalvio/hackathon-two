@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import TripForm from '../trip/TripForm'
+import TripForm from '../trip/TripForm';
 import moment from 'moment';
 
 class TripIndividual extends Component {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import LocationForm from '../trip/TripForm'
-import moment from 'moment';
+import LocationForm from './LocationForm';
 
 class LocationIndividual extends Component {
   state = { editing: false }
@@ -9,32 +8,29 @@ class LocationIndividual extends Component {
   toggleEdit = () => this.setState({ editing: !this.state.editing })
 
   render() {
-  const { id, name, start_date, end_time, deleteTrip }  = this.props
+  const { id, name, days, deleteLocation }  = this.props
   const { editing } = this.state
-  var startDate = moment(start_date).format('MMM Do YY') 
-  var endDate = moment(end_time).format('MMM Do YY')
 
   return(
   <div className='location-entry'>
   {
     editing 
     ?
-    <LocationForm {...this.props} toggleEdit={this.toggleEdit} updateTrip={this.props.updateTrip}/> 
+    <LocationForm {...this.props} toggleEdit={this.toggleEdit} updateLocation={this.props.updateLocation} deleteLocation={this.props.deleteLocation} /> 
     :
     <>
   <h3>
    <Link
     to={{
-      pathname: `/trips/${id}`,
-      state: { id, name, start_date, end_time }
+      pathname: `trips/:trip_id/locations/${id}`,
+      state: { id, name, days }
     }}>
     {name}
     </Link>
     </h3>
-    <p>Start Date: {startDate} </p>
-    <p>End Date: {endDate} </p>
+    <p>Days in City: {days} </p>
     <button className='edit-locations' onClick={ () => this.toggleEdit() }>Edit</button>
-    <button className='delete-locations' onClick={ () => deleteTrip(id) }>Delete</button>
+    <button className='delete-locations' onClick={ () => deleteLocation(id) }>Delete</button>
     </>
   }
   </div>

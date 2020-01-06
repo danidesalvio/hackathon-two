@@ -5,7 +5,7 @@ import logo from '../images/airplane.svg';
 const Navbar = () => (
   <div className="nav">
       <div className="nav-logo">
-        <img src={logo}/>
+        <img src={logo} alt="logo"/>
       </div>
       <div className="nav-items">
           <a href='/'>Home</a>

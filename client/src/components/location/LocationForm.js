@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Container } from 'semantic-ui-react';
 
 
 class LocationForm extends Component {
@@ -35,19 +36,32 @@ class LocationForm extends Component {
   render() {
     const { name, days } = this.state
     return(
+      <Container>
       <div className='location-form'>
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
        <div className='name'>
-         <label for="name"> Name </label>
-          <input type="text" name={name} id="name"/>
+       <Form.Input
+          name='name'
+          value={name}
+          onChange={this.handleChange}
+          label='Name'
+          required
+          />
         </div>
         <div className='days'>
-          <label for="days"> Start Date </label>
-          <input type="number" name={days} id="days"/>
+        <Form.Input
+          type='number'
+          name='days'
+          value={days}
+          onChange={this.handleChange}
+          label='Days'
+          required
+          />
         </div>
         <button className='submit-button' type='submit'>Submit</button>
-      </form>
+      </Form>
       </div>
+      </Container>
     )
   }
 }

@@ -8,7 +8,7 @@ class TripShow  extends Component {
 render() {
 const { id, name, end_time, start_date } = this.props.location.state
 var startDate = moment(start_date).format('MMM Do YY')
-  var endDate = moment(end_time).format('MMM Do YY')
+var endDate = moment(end_time).format('MMM Do YY')
   
 return(
 <>
@@ -21,12 +21,12 @@ return(
       <h2>{name}</h2>
       <p>Start Date: {startDate} </p>
       <p>End Date: {endDate} </p>
-      <Link className='locations-link' to={{
+      <h3><Link className='locations-link' to={{
         pathname: `/trips/${id}/locations`,
         state: { id }
       }}>
-        Locations
-      </Link>
+      View Locations Planned
+      </Link></h3>
     </div>
   </Container> 
 </>

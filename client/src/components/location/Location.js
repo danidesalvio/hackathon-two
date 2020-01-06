@@ -4,12 +4,14 @@ import LocationList from './LocationList';
 import axios from 'axios';
 
 class Locations extends Component {
-    state = { trips: [], adding: false }
+    state = { locations: [], adding: false }
 
     componentDidMount() {
-        axios.get('/api/trips/:trip_id/locations')
+        const { id } = this.props.location.state
+        let TripId = id
+        axios.get(`/api/trips/${TripId}/locations`)
         .then( res => {
-            this.setState({ trips: res.data })
+            this.setState({ locations: res.data })
         })
         .catch( err => {
             console.log(err)
@@ -18,27 +20,31 @@ class Locations extends Component {
   
     toggleAdd = () => this.setState({ adding: !this.state.adding })
   
-    addTrip = (trip) => {
-        axios.post('/api/trips/:trip_id/locations', trip )
+    addLocation = (location) => {
+        const { id } = this.props
+        let TripId = id
+        axios.post(`/api/trips/${TripId}/locations`, location )
         .then( res => {
-            const { trips } = this.state
-            this.setState({ trips: [...trips, res.data ]})
+            const { locations } = this.state
+            this.setState({ locations: [...locations, res.data ]})
         })
         .catch( err => {
             console.log(err)
         })
     }
   
-    updateTrip = (id, trip) => {
-        axios.put('/api/trips/:trip_id/locations/:id', trip)
+    updateLocation = (location) => {
+        const { id } = this.props.location.state
+        let TripId = id
+        axios.put(`/api/trips/${TripId}/locations/:id`, location)
         .then( res => {
-            const trips = this.state.trips.map( t => {
-                if (t.id === id) {
+            const locations = this.state.locations.map( l => {
+                if (l.id === id) {
                   return res.data
                 }
-                return t
+                return l
             })
-            this.setState({ trips })
+            this.setState({ locations })
         })
         .catch( err => {
             console.log(err)
@@ -46,10 +52,12 @@ class Locations extends Component {
     }
   
     deleteTrip = (id) => {
-        axios.delete('/api/trips/:trip_id/locations/:id')
+        const { trip_id } = this.props.location.state
+        let TripId = trip_id
+        axios.delete(`/api/trips/${TripId}/locations/${id}`)
         .then( res => {
-            const { trips } = this.state
-            this.setState({ trips: trips.filter( t => t.id !== id)})
+            const { locations } = this.state
+            this.setState({ locations: locations.filter( l => l.id !== id)})
         })
         .catch( err => {
             console.log(err)
@@ -59,17 +67,17 @@ class Locations extends Component {
     render() {
         const { adding } = this.state
         return(
-         <div className='trip-page'>
-         <h1 className='trip-header'>Locations</h1>
-          <div className='add-trip'>
+         <div className='location-page'>
+         <h2 className='location-header'>Locations</h2>
+          <div className='add-location'>
          {
             adding ?
-            <div className='adding-trip'><LocationForm addTrip={this.addTrip} toggleAdd={this.toggleAdd} /></div>
+            <div className='adding-location'><LocationForm addLocation={this.addLocation} toggleAdd={this.toggleAdd} /></div>
             :
-            <button className='add-trip-button' color='teal' onClick={this.toggleAdd}>New Trip</button>
+            <button className='add-location-button' color='teal' onClick={this.toggleAdd}>New Location</button>
           }
           </div>
-         <LocationList trips={this.state.trips} updateTrip={this.updateTrip} deleteTrip={this.deleteTrip}/>
+         <LocationList locations={this.state.locations} updateLocation={this.updateLocation} deleteLocation={this.deleteLocation}/>
          </div>
     )}
   }

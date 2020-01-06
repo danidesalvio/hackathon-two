@@ -8,7 +8,7 @@ import TripShow from './components/trip/TripShow';
 import TripType from './components/pages/TripType';
 import Footer from './components/shared/Footer';
 import Location from './components/location/Location';
-
+import LocationShow from './components/location/LocationShow';
 
 
 const App = () => (
@@ -19,6 +19,7 @@ const App = () => (
       <Route exact path="/trip" component={Trip}/>
       <Route exact path="/trips/:id" component={TripShow} />
       <Route exact path="/trips/:trip_id/locations" component={Location} />
+      <Route exact path="/locations/:id" component={LocationShow} />
       <Route exact path="/trip_types" component={TripType} />
     </Switch>
     
