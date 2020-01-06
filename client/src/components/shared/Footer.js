@@ -8,7 +8,7 @@ const Footer = () => (
   <div className="footer">
     <div className="footer-wrapper">
       <div className="ftr-logo">
-        <img src={logo}/>
+        <img src={logo} alt="logo"/>
       </div>
       <div className="ftr-contact">
         <Button circular color='facebook' icon='facebook' />

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import '../css/custom.css';
 import moment from 'moment';
+import Location from '../location/Location';
 
 class TripShow  extends Component {
 render() {
@@ -27,14 +28,11 @@ return(
       }}>
         Locations
       </Link>
+      <Location />
     </div>
   </Container> 
 </>
   )
 }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 7e3d5927d0dba03372694194b045bbbae984b65d
 export default TripShow;

@@ -4,14 +4,13 @@ import LocationIndividual from './LocationIndividual';
 class LocationList extends Component {
 
   render() {
-    const { deleteLocation, updateLocation} = this.props
-    const {locations} = this.state
+    const { locations, deleteLocation, updateLocation} = this.props
     
     return(
-      locations.map( t => 
+      locations.map( l => 
         <LocationIndividual
-        key={t.id}
-        {...t}
+        key={l.id}
+        {...l}
         updateLocation={updateLocation}
         deleteLocation={deleteLocation}/>
       )
