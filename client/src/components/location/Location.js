@@ -7,11 +7,11 @@ class Locations extends Component {
     state = { locations: [], adding: false }
 
     componentDidMount() {
-        const { id } = this.props
+        const { id } = this.props.location.state
         let TripId = id
         axios.get(`/api/trips/${TripId}/locations`)
         .then( res => {
-            this.setState({ trips: res.data })
+            this.setState({ locations: res.data })
         })
         .catch( err => {
             console.log(err)
@@ -33,8 +33,10 @@ class Locations extends Component {
         })
     }
   
-    updateLocation = (id, location) => {
-        axios.put(`/api/trips/:trip_id/locations/${id}`, location)
+    updateLocation = (location) => {
+        const { id } = this.props.location.state
+        let TripId = id
+        axios.put(`/api/trips/${TripId}/locations/:id`, location)
         .then( res => {
             const locations = this.state.locations.map( l => {
                 if (l.id === id) {
@@ -50,7 +52,9 @@ class Locations extends Component {
     }
   
     deleteTrip = (id) => {
-        axios.delete(`/api/trips/:trip_id/locations/${id}`)
+        const { trip_id } = this.props.location.state
+        let TripId = trip_id
+        axios.delete(`/api/trips/${TripId}/locations/${id}`)
         .then( res => {
             const { locations } = this.state
             this.setState({ locations: locations.filter( l => l.id !== id)})
@@ -64,7 +68,7 @@ class Locations extends Component {
         const { adding } = this.state
         return(
          <div className='location-page'>
-         <h1 className='location-header'>Locations</h1>
+         <h2 className='location-header'>Locations</h2>
           <div className='add-location'>
          {
             adding ?

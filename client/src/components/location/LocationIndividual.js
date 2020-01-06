@@ -16,7 +16,7 @@ class LocationIndividual extends Component {
   {
     editing 
     ?
-    <LocationForm {...this.props} toggleEdit={this.toggleEdit} updateLocation={this.props.updateLocation}/> 
+    <LocationForm {...this.props} toggleEdit={this.toggleEdit} updateLocation={this.props.updateLocation} deleteLocation={this.props.deleteLocation} /> 
     :
     <>
   <h3>
@@ -28,7 +28,6 @@ class LocationIndividual extends Component {
     {name}
     </Link>
     </h3>
-    <p>City: {name} </p>
     <p>Days in City: {days} </p>
     <button className='edit-locations' onClick={ () => this.toggleEdit() }>Edit</button>
     <button className='delete-locations' onClick={ () => deleteLocation(id) }>Delete</button>
