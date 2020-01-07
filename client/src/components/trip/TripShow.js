@@ -12,12 +12,12 @@ var endDate = moment(end_time).format('MMM Do YY')
   
 return(
 <>
-    <div class="image-header home">
+    <div className="image-header home">
         <h1>Your Trip</h1>
-        <div class="img-overlay"></div>
+        <div className="img-overlay"></div>
     </div>
   <Container>
-    <div class="your-trip">
+    <div className="your-trip">
       <h2>{name}</h2>
       <p>Start Date: {startDate} </p>
       <p>End Date: {endDate} </p>

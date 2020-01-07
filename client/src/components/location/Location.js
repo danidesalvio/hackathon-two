@@ -21,9 +21,8 @@ class Locations extends Component {
     toggleAdd = () => this.setState({ adding: !this.state.adding })
   
     addLocation = (location) => {
-        const { id } = this.props
-        let TripId = id
-        axios.post(`/api/trips/${TripId}/locations`, location )
+        const { id: trip_id } = this.props.location.state
+        axios.post(`/api/trips/${trip_id}/locations`, location )
         .then( res => {
             const { locations } = this.state
             this.setState({ locations: [...locations, res.data ]})
@@ -33,10 +32,9 @@ class Locations extends Component {
         })
     }
   
-    updateLocation = (location) => {
-        const { id } = this.props.location.state
-        let TripId = id
-        axios.put(`/api/trips/${TripId}/locations/:id`, location)
+    updateLocation = (id, location) => {
+        const { id: trip_id } = this.props.location.state
+        axios.put(`/api/trips/${trip_id}/locations/${id}`, location)
         .then( res => {
             const locations = this.state.locations.map( l => {
                 if (l.id === id) {
@@ -51,10 +49,9 @@ class Locations extends Component {
         })
     }
   
-    deleteTrip = (id) => {
-        const { trip_id } = this.props.location.state
-        let TripId = trip_id
-        axios.delete(`/api/trips/${TripId}/locations/${id}`)
+    deleteLocation = (id) => {
+        const { id: trip_id } = this.props.location.state
+        axios.delete(`/api/trips/${trip_id}/locations/${id}`)
         .then( res => {
             const { locations } = this.state
             this.setState({ locations: locations.filter( l => l.id !== id)})
