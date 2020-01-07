@@ -22,7 +22,7 @@ class LocationIndividual extends Component {
   <h3>
    <Link
     to={{
-      pathname: `trips/:trip_id/locations/${id}`,
+      pathname: `/locations/${id}`,
       state: { id, name, days }
     }}>
     {name}
