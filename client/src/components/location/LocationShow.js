@@ -12,7 +12,7 @@ return(
     </div>
   <Container>
     <div>
-      <h2>{days}</h2>
+      <h2>Days in City: {days}</h2>
     </div>
   </Container> 
 </>
